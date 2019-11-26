@@ -1,0 +1,5 @@
+.import/
+*.exe
+*.pck
+*.TMP
+export_presets.cfg
