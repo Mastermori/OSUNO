@@ -1,0 +1,31 @@
+[gd_scene format=2]
+
+[node name="Lobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.0431373, 0.054902, 0.262745, 1 )
+
+[node name="IPLabel" type="Label" parent="."]
+margin_left = 448.0
+margin_top = 206.0
+margin_right = 488.0
+margin_bottom = 220.0
+text = "IP:"
+
+[node name="IPInput" type="LineEdit" parent="."]
+margin_left = 448.0
+margin_top = 220.0
+margin_right = 576.0
+margin_bottom = 244.0
+text = "127.0.0.1"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 448.0
+margin_top = 288.0
+margin_right = 576.0
+margin_bottom = 320.0
+text = "Connect"
