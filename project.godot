@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Card",
+"language": "GDScript",
+"path": "res://systems/Cards/Card.gd"
+}, {
 "base": "Node",
 "class": "Player",
 "language": "GDScript",
 "path": "res://systems/Networking/Player.gd"
 } ]
 _global_script_class_icons={
+"Card": "",
 "Player": ""
 }
 
@@ -26,6 +32,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Network="*res://systems/Networking/Network.gd"
+Global="*res://systems/Networking/Global.gd"
 
 [rendering]
 
