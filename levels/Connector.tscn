@@ -78,7 +78,7 @@ margin_right = 371.0
 margin_bottom = 265.0
 text = "127.0.0.1"
 
-[node name="Color Label" type="Label" parent="Inputs"]
+[node name="ColorLabel" type="Label" parent="Inputs"]
 margin_left = 463.0
 margin_top = 201.0
 margin_right = 503.0
@@ -88,7 +88,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorPickerButton" type="ColorPickerButton" parent="Inputs"]
+[node name="ColorPicker" type="ColorPickerButton" parent="Inputs"]
 margin_left = 463.0
 margin_top = 215.0
 margin_right = 511.0
@@ -98,4 +98,5 @@ edit_alpha = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="ConnectButton" to="." method="_on_ConnectButton_pressed"]
 [connection signal="pressed" from="HostButton" to="." method="_on_HostButton_pressed"]

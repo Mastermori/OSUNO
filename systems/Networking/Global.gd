@@ -12,3 +12,4 @@ func change_scene(new_scene : Node):
 	root.add_child(new_scene)
 	# Optional, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(new_scene)
+
