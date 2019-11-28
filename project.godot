@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "Lobby",
 "language": "GDScript",
-"path": "res://systems/Networking/Lobby.gd"
+"path": "res://systems/Networking/Lobby/Lobby.gd"
 }, {
 "base": "Node",
 "class": "Player",

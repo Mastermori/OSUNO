@@ -1,12 +1,20 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://systems/Networking/Connector.gd" type="Script" id=1]
+[ext_resource path="res://systems/Networking/Lobby/Connector.gd" type="Script" id=1]
+[ext_resource path="res://fonts/176MKA.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://systems/Networking/Lobby/InfoLabel.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+extra_spacing_char = 3
+font_data = ExtResource( 2 )
 
 [node name="Connector" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -59,7 +67,9 @@ margin_left = 463.0
 margin_top = 156.0
 margin_right = 591.0
 margin_bottom = 180.0
-text = "Nick"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="IPLabel" type="Label" parent="Inputs"]
 margin_left = 243.0
@@ -98,5 +108,20 @@ edit_alpha = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="InfoLabel" type="Label" parent="."]
+modulate = Color( 1, 0.129412, 0.129412, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "This is Info!"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="InfoLabel"]
+one_shot = true
 [connection signal="pressed" from="ConnectButton" to="." method="_on_ConnectButton_pressed"]
 [connection signal="pressed" from="HostButton" to="." method="_on_HostButton_pressed"]
+[connection signal="timeout" from="InfoLabel/Timer" to="InfoLabel" method="_on_Timer_timeout"]
