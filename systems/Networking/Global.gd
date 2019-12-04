@@ -2,6 +2,11 @@ extends Node
 
 enum CardType {
 	NORMAL,
+	DRAWTWO,
+	SKIP,
+	REVERSE,
+	WILD,
+	WILDFOUR,
 }
 
 func change_scene(new_scene : Node):
