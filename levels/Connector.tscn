@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://systems/Networking/Lobby/Connector.gd" type="Script" id=1]
-[ext_resource path="res://fonts/176MKA.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://systems/Networking/Lobby/InfoLabel.gd" type="Script" id=3]
+[ext_resource path="res://systems/Lobby/Connector.gd" type="Script" id=1]
+[ext_resource path="res://systems/Lobby/InfoPopup.gd" type="Script" id=2]
+[ext_resource path="res://fonts/176MKA.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
 extra_spacing_char = 3
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [node name="Connector" type="Control"]
 anchor_right = 1.0
@@ -100,28 +100,38 @@ __meta__ = {
 
 [node name="ColorPicker" type="ColorPickerButton" parent="Inputs"]
 margin_left = 463.0
-margin_top = 215.0
-margin_right = 511.0
-margin_bottom = 252.0
+margin_top = 218.0
+margin_right = 591.0
+margin_bottom = 259.0
 color = Color( 1, 0.0117647, 0.0117647, 1 )
 edit_alpha = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InfoLabel" type="Label" parent="."]
+[node name="InfoPopup" type="PopupPanel" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="InfoLabel" type="Label" parent="InfoPopup"]
 modulate = Color( 1, 0.129412, 0.129412, 1 )
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 174.0
+margin_bottom = 37.0
 custom_fonts/font = SubResource( 1 )
 text = "This is Info!"
 align = 1
 valign = 1
-script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="InfoLabel"]
+[node name="Timer" type="Timer" parent="InfoPopup"]
 one_shot = true
 [connection signal="pressed" from="ConnectButton" to="." method="_on_ConnectButton_pressed"]
 [connection signal="pressed" from="HostButton" to="." method="_on_HostButton_pressed"]
-[connection signal="timeout" from="InfoLabel/Timer" to="InfoLabel" method="_on_Timer_timeout"]
+[connection signal="popup_hide" from="InfoPopup" to="InfoPopup" method="_on_InfoPopup_popup_hide"]
+[connection signal="timeout" from="InfoPopup/Timer" to="InfoPopup" method="_on_Timer_timeout"]
