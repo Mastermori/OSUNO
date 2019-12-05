@@ -10,6 +10,7 @@ func _ready():
 	get_tree().connect("connected_to_server", self, "_connected_to_server")
 	get_tree().connect("connection_failed", self, "_connected_fail")
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
+	self.pause_mode = Node.PAUSE_MODE_PROCESS
 
 # Player info, associate ID to data
 var players = {}
@@ -57,12 +58,17 @@ remote func register_player(info : Dictionary):
 	var player = Player.new(info.nick, Color(info.color))
 	# Store the info
 	players[id] = player
+	# Call function to update lobby UI here
 	var lobby = $"/root/Lobby"
 	if lobby:
 		lobby.refresh(players)
-	# Call function to update lobby UI here
 
-remote func configure_game():
+func start_game():
+	if !is_hosting():
+		return
+	rpc("configure_game")
+
+remotesync func configure_game():
 	get_tree().set_pause(true)
 	rpc_id(1, "done_config", get_tree().get_network_unique_id())
 
@@ -78,3 +84,7 @@ remote func done_configure(who):
 	
 	if playersDone.size() == players.size():
 		rpc("post_configure_game")
+
+
+func is_hosting() -> bool:
+	return get_tree().get_network_unique_id() == 1

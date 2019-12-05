@@ -11,7 +11,6 @@ func show_info(text : String, time := 3.5, color := Color.red):
 	anchor_bottom -= .4
 	timer.start(time)
 
-
 func _on_Timer_timeout():
 	hide()
 

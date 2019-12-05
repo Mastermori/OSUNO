@@ -21,21 +21,33 @@ __meta__ = {
 
 [node name="PlayerList" type="ItemList" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.43
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -144.0
-margin_top = -80.0
-margin_right = 144.0
-margin_bottom = 80.0
+anchor_bottom = 0.43
+margin_left = -160.0
+margin_top = -98.0
+margin_right = 160.0
+margin_bottom = 93.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LeaveButton" type="Button" parent="."]
-margin_left = 474.0
-margin_top = 400.0
-margin_right = 553.0
-margin_bottom = 426.0
+margin_left = 544.0
+margin_top = 384.0
+margin_right = 640.0
+margin_bottom = 416.0
 text = "Leave"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 384.0
+margin_top = 384.0
+margin_right = 480.0
+margin_bottom = 416.0
+disabled = true
+text = "Start"
 [connection signal="pressed" from="LeaveButton" to="." method="_on_LeaveButton_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
