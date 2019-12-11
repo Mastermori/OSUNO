@@ -17,12 +17,12 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "Lobby",
 "language": "GDScript",
-"path": "res://systems/Networking/Lobby/Lobby.gd"
+"path": "res://systems/Lobby/Lobby.gd"
 }, {
 "base": "Node",
 "class": "Player",
 "language": "GDScript",
-"path": "res://systems/Networking/Player.gd"
+"path": "res://systems/Player.gd"
 } ]
 _global_script_class_icons={
 "Card": "",
@@ -40,6 +40,12 @@ config/icon="res://icon.png"
 
 Network="*res://systems/Networking/Network.gd"
 Global="*res://systems/Networking/Global.gd"
+IconLoader="*res://addons/file-editor/scripts/IconLoader.gd"
+LastOpenedFiles="*res://addons/file-editor/scripts/LastOpenedFiles.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "file-editor" )
 
 [rendering]
 

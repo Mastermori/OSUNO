@@ -2,7 +2,18 @@ extends Node
 
 enum CardType {
 	NORMAL,
+	DRAWTWO,
+	SKIP,
+	REVERSE,
+	WILD,
+	WILDFOUR,
 }
+
+func _ready():
+	self.pause_mode = Node.PAUSE_MODE_PROCESS
+
+func create_player(name : String, color: Color):
+	return load("res://systems/Player.tscn").instance().init(name, color)
 
 func change_scene(new_scene : Node):
 	var root = get_tree().get_root()
