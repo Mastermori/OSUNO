@@ -13,8 +13,8 @@ func _ready():
 	self.pause_mode = Node.PAUSE_MODE_PROCESS
 
 # Player info, associate ID to data
-var players
-var playersDone
+var players : Dictionary
+var playersDone : Array
 # Info we send to other players
 var player : Player
 
