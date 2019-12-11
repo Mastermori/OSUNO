@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Player",
 "language": "GDScript",
-"path": "res://systems/Networking/Player.gd"
+"path": "res://systems/Player.gd"
 } ]
 _global_script_class_icons={
 "Card": "",

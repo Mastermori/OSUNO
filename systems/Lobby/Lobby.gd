@@ -10,7 +10,7 @@ func _ready():
 	if Network.is_hosting():
 		$StartButton.disabled = false
 	
-	_add_player(Network.player)
+	refresh(Network.players)
 
 func refresh(players : Dictionary):
 	playerList.clear()
@@ -23,6 +23,7 @@ func _add_player(player : Player):
 
 
 func _on_LeaveButton_pressed():
+	Network.leave()
 	var conn = load("res://levels/Connector.tscn").instance()
 	conn.get_node("InfoPopup").show_info("You disconnected!")
 	Global.change_scene(conn)

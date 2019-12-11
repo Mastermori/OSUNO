@@ -3,7 +3,24 @@ extends PopupPanel
 onready var timer = $Timer
 onready var label = $InfoLabel
 
+onready var ready = true
+
+var text : String
+var color : Color
+var time : int
+
+func _ready():
+	if text:
+		call_deferred("show_popup")
+
 func show_info(text : String, time := 3.5, color := Color.red):
+	self.text = text
+	self.time = time
+	self.color = color
+	if ready:
+		show_popup()
+
+func show_popup():
 	label.text = text
 	label.modulate = color
 	popup_centered()
