@@ -9,6 +9,10 @@ enum CardType {
 	WILDFOUR,
 }
 
+var cards := {
+	num = preload("res://systems/Cards/NumCard.tscn"),
+}
+
 func _ready():
 	self.pause_mode = Node.PAUSE_MODE_PROCESS
 
