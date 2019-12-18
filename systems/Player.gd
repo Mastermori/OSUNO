@@ -34,11 +34,16 @@ func get_appropriate_width():
 func draw_card():
 	var card = Global.cards["num"].instance()
 	card.set_num(randi() % 10)
+	card.inHand = true
 	add_card(card)
 
 func add_card(card):
 	cards.append(card)
 	hand.add_child(card)
+	card.connect("card_clicked", self, "_on_card_clicked", [card])
+
+func _on_card_clicked(card : Card):
+	print("Clicked card: " + str(card.number))
 
 func draw_cards(amount : int):
 	for i in range(amount):

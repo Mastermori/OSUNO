@@ -32,3 +32,7 @@ color = Color( 0.478431, 0.478431, 0.478431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="gui_input" from="Background" to="." method="_on_Background_gui_input"]
+[connection signal="gui_input" from="Highlight" to="." method="_on_Highlight_gui_input"]
