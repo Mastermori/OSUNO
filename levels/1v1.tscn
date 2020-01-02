@@ -6,6 +6,9 @@
 [node name="1v1" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="DiscardPile" type="Node2D" parent="."]
+position = Vector2( 500, 288 )
+
 [node name="Players" type="Node2D" parent="."]
 
 [node name="Player" parent="Players" instance=ExtResource( 1 )]
@@ -18,5 +21,3 @@ rotation = 3.14159
 position = Vector2( 500, 470 )
 
 [node name="CardStack" type="Node2D" parent="."]
-
-[node name="DiscardPile" type="Node2D" parent="."]

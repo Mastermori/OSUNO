@@ -6,28 +6,30 @@
 script = ExtResource( 1 )
 
 [node name="Border" type="ColorRect" parent="."]
-margin_right = 160.0
-margin_bottom = 256.0
+margin_left = -78.0379
+margin_top = -121.414
+margin_right = 81.9621
+margin_bottom = 134.586
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Background" type="ColorRect" parent="."]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 155.0
-margin_bottom = 251.0
+margin_left = -73.0379
+margin_top = -116.414
+margin_right = 76.9621
+margin_bottom = 129.586
 color = Color( 0.109804, 0.0705882, 0.45098, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Highlight" type="ColorRect" parent="."]
-margin_left = 40.0
-margin_top = 81.0
-margin_right = 116.0
-margin_bottom = 164.0
+margin_left = -38.0379
+margin_top = -40.4139
+margin_right = 37.9621
+margin_bottom = 42.5861
 color = Color( 0.478431, 0.478431, 0.478431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -36,3 +38,4 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="."]
 [connection signal="gui_input" from="Background" to="." method="_on_Background_gui_input"]
 [connection signal="gui_input" from="Highlight" to="." method="_on_Highlight_gui_input"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

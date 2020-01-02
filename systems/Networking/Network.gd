@@ -81,6 +81,7 @@ func start_game():
 
 remotesync func configure_game():
 	get_tree().set_pause(true)
+	randomize()
 	if players.size() <= 2:
 		get_tree().change_scene("res://levels/1v1.tscn")
 	else:

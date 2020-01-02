@@ -10,6 +10,7 @@ var cards : Array
 var cardSize : Vector2
 
 onready var hand = $HandCards
+onready var discard = $"/root/1v1/DiscardPile"
 
 export var maxWidthPercent := .75
 
@@ -21,14 +22,23 @@ func _ready():
 	draw_cards(3)
 
 func order_cards():
+	cards.sort_custom(self, "compare_numcards")
 	for i in range(cards.size()):
 		cards[i].position.x = get_appropriate_width()/cards.size()*i
 	pass
+
+func compare_numcards(a : NumCard, b : NumCard):
+	if typeof(a) != typeof(b):
+		return false
+	else:
+		return a.number < b.number
 
 func get_appropriate_width():
 	var width = cardSize.x
 	width *= 1.1 #margin percent
 	width *= cards.size()
+	print("appropriate width:")
+	print(width < OS.get_window_size().x*maxWidthPercent)
 	return (width if width < OS.get_window_size().x*maxWidthPercent else OS.get_window_size().x*maxWidthPercent)
 
 func draw_card():
@@ -43,7 +53,11 @@ func add_card(card):
 	card.connect("card_clicked", self, "_on_card_clicked", [card])
 
 func _on_card_clicked(card : Card):
-	print("Clicked card: " + str(card.number))
+	var pos = -hand.position + discard.position - get_parent().position
+	print(pos)
+	cards.erase(card)
+	card.inHand = false
+	card.move_to(pos)
 
 func draw_cards(amount : int):
 	for i in range(amount):

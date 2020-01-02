@@ -7,7 +7,7 @@ onready var ready = true
 
 var text : String
 var color : Color
-var time : int
+var time : float
 
 func _ready():
 	if text:

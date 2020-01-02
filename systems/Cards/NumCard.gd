@@ -1,5 +1,7 @@
 extends Card
 
+class_name NumCard
+
 export var number := 0
 
 func _ready():
